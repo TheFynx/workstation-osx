@@ -1,0 +1,30 @@
+depends:
+  - 1-init
+  - 2-packages
+  - 3-linuxify
+  - 4-node
+  - 4-python
+  - 4-ruby
+actions:
+  ###############################################################################
+  # Screen                                                                      #
+  ###############################################################################
+  # Enable subpixel font rendering on non-Apple LCDs
+  # Reference: https://github.com/kevinSuttle/macOS-Defaults/issues/17#issuecomment-266633501
+  - action: command.run
+    command: defaults
+    args:
+      - "write"
+      - "NSGlobalDomain"
+      - "AppleFontSmoothing"
+      - "-int"
+      - "1"
+  # Enable HiDPI display modes (requires restart)
+  - action: command.run
+    command: defaults
+    args:
+      - "write"
+      - "/Library/Preferences/com.apple.windowserver"
+      - "DisplayResolutionEnabled"
+      - "-bool"
+      - "true"

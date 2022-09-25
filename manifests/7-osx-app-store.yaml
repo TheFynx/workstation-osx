@@ -1,0 +1,34 @@
+depends:
+  - 1-init
+  - 2-packages
+  - 3-linuxify
+  - 4-node
+  - 4-python
+  - 4-ruby
+actions:
+###############################################################################
+# Mac App Store                                                               #
+###############################################################################
+  # Save to disk (not to iCloud) by default
+  - action: command.run
+    command: defaults
+    args:
+      - "write"
+      - "NSGlobalDomain"
+      - "NSDocumentSaveNewDocumentsToCloud"
+      - "-bool"
+      - "false"
+
+## TODO: Convert to Comtrya Commands
+
+# # Enable the automatic update check
+# defaults write com.apple.SoftwareUpdate AutomaticCheckEnabled -bool true
+
+# # Check for software updates daily, not just once per week
+# defaults write com.apple.SoftwareUpdate ScheduleFrequency -int 1
+
+# # Download newly available updates in background
+# defaults write com.apple.SoftwareUpdate AutomaticDownload -int 1
+
+# # Install System data files & security updates
+# defaults write com.apple.SoftwareUpdate CriticalUpdateInstall -int 1

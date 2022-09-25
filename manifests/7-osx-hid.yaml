@@ -1,0 +1,78 @@
+depends:
+  - 1-init
+  - 2-packages
+  - 3-linuxify
+  - 4-node
+  - 4-python
+  - 4-ruby
+actions:
+  ###############################################################################
+  # Trackpad, mouse, keyboard, Bluetooth accessories, and input                 #
+  ###############################################################################
+  # Increase sound quality for Bluetooth headphones/headsets
+  - action: command.run
+    command: defaults
+    args:
+      - "write"
+      - "com.apple.BluetoothAudioAgent"
+      - "Apple Bitpool Min (editable)"
+      - "-int"
+      - "40"
+  # Trackpad: enable tap to click for this user and for the login screen
+  - action: command.run
+    command: defaults
+    args:
+      - "write"
+      - "com.apple.driver.AppleBluetoothMultitouch.trackpad"
+      - "TrackpadCornerSecondaryClick"
+      - "-int"
+      - "2"
+  - action: command.run
+    command: defaults
+    args:
+      - "write"
+      - "com.apple.driver.AppleBluetoothMultitouch.trackpad"
+      - "TrackpadRightClick"
+      - "-bool"
+      - "true"
+  - action: command.run
+    command: defaults
+    args:
+      - "write"
+      - "NSGlobalDomain"
+      - "com.apple.trackpad.trackpadCornerClickBehavior"
+      - "-int"
+      - "1"
+  - action: command.run
+    command: defaults
+    args:
+      - "write"
+      - "NSGlobalDomain"
+      - "com.apple.trackpad.enableSecondaryClick"
+      - "-bool"
+      - "true"
+  # Disable “natural” (Lion-style) scrolling
+  - action: command.run
+    command: defaults
+    args:
+      - "write"
+      - "NSGlobalDomain"
+      - "com.apple.swipescrolldirection"
+      - "-bool"
+      - "false"
+  # Enable full keyboard access for all controls
+  - action: command.run
+    command: defaults
+    args:
+      - "write"
+      - "NSGlobalDomain"
+      - "AppleKeyboardUIMode"
+      - "-int"
+      - "3"
+  # Set the timezone; see `sudo systemsetup -listtimezones` for other values
+  - action: command.run
+    sudo: true
+    command: systemsetup
+    args:
+      - "-settimezone"
+      - "America/Oklahoma"

@@ -1,0 +1,58 @@
+depends:
+  - 1-init
+  - 2-packages
+  - 3-linuxify
+  - 4-node
+  - 4-python
+  - 4-ruby
+actions:
+  ###############################################################################
+  # Energy saving/Power Settings                                                #
+  ###############################################################################
+  - action: command.run
+    sudo: true
+    command: systemsetup
+    args:
+      - "-setrestartfreeze"
+      - "on"
+  - action: command.run
+    sudo: true
+    command: pmset
+    args:
+      - "-a"
+      - "displaysleep"
+      - "30"
+  - action: command.run
+    sudo: true
+    command: pmset
+    args:
+      - "-c"
+      - "sleep"
+      - "0"
+  - action: command.run
+    sudo: true
+    command: pmset
+    args:
+      - "-b"
+      - "sleep"
+      - "5"
+  - action: command.run
+    sudo: true
+    command: pmset
+    args:
+      - "-a"
+      - "standbydelay"
+      - "86400"
+  - action: command.run
+    sudo: true
+    command: systemsetup
+    args:
+      - "-setcomputersleep"
+      - "off"
+  - action: command.run
+    sudo: true
+    command: pmset
+    args:
+      - "-a"
+      - "hibernatemode"
+      - "0"

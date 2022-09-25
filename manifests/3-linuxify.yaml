@@ -1,0 +1,12 @@
+actions:
+  - action: command.run
+    command: git
+    args:
+      - "clone"
+      - "https://github.com/fabiomaia/linuxify.git"
+      - "/tmp/linuxify"
+  - action: command.run
+    dir: /tmp/linuxify
+    command: ./linuxify
+    args:
+      - "install"

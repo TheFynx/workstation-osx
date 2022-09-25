@@ -1,0 +1,110 @@
+depends:
+  - 1-init
+actions:
+  # Add New Brew Taps
+  - action: package.tap
+    provider: homebrew
+    list:
+      - "homebrew/cask-fonts"
+  # System
+  - action: package.install
+    provider: homebrew
+    list:
+      - jq
+      - tree
+      - curl
+      - dasel
+      - curlie
+      - wget
+      - unzip
+      - zip
+      - gzip
+      - git
+      - xclip
+      - rsync
+      - fd
+      - exa
+      - pandoc
+      - bzip2
+      - shfmt
+      - p7zip
+      - openjdk
+      - diffutils
+      - topgrade
+      - gtop
+  # Desktop Environment
+  - action: package.install
+    provider: homebrew
+    list:
+      - libreoffice
+      - flameshot
+      - keybase
+      - bitwarden
+      - alfred
+      - vlc
+      - balenaetcher
+      - brave-browser
+  # DevTools
+  - action: package.install
+    provider: homebrew
+    list:
+      - insomnia
+      - neovim
+      - visual-studio-code
+  # Terminal
+  - action: package.install
+    provider: homebrew
+    list:
+      - lynx
+      - alacritty
+      - hyper
+      - fig
+      - hstr
+      - zsh
+      - zsh-autosuggestions
+      - zsh-history-substring-search
+      - zsh-syntax-highlighting
+      - "romkatv/powerlevel10k/powerlevel10k"
+  # Fonts
+  - action: package.install
+    provider: homebrew
+    list:
+      - font-hack-nerd-font
+
+  # Coding
+  - action: package.install
+    provider: homebrew
+    list:
+      - go
+      - pyenv
+      - yarn
+      - rbenv
+      - ruby-build
+      - nodenv
+      - node-build
+  # VM
+  - action: package.install
+    provider: homebrew
+    list:
+      - vagrant
+      - virt-manager
+      - dnsmasq
+      - qemu
+      - libvirt
+      - lima
+  # Work Related
+  - action: package.install
+    provider: homebrew
+    list:
+      - awscli
+      - pulumi
+      - terraform
+      - packer
+      - mattermost
+      - microsoft-teams
+
+  - action: command.run
+    command: bash
+    args:
+      - "-c"
+      - "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"

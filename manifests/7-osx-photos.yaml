@@ -1,0 +1,24 @@
+depends:
+  - 1-init
+  - 2-packages
+  - 3-linuxify
+  - 4-node
+  - 4-python
+  - 4-ruby
+actions:
+###############################################################################
+# Photos                                                                      #
+###############################################################################
+  # Save to disk (not to iCloud) by default
+  - action: command.run
+    command: defaults
+    args:
+      - "write"
+      - "NSGlobalDomain"
+      - "NSDocumentSaveNewDocumentsToCloud"
+      - "-bool"
+      - "false"
+
+## TODO: Convert to Comtrya Commands
+# Prevent Photos from opening automatically when devices are plugged in
+# defaults -currentHost write com.apple.ImageCapture disableHotPlug -bool true

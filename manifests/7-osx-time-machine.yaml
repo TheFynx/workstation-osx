@@ -1,0 +1,27 @@
+depends:
+  - 1-init
+  - 2-packages
+  - 3-linuxify
+  - 4-node
+  - 4-python
+  - 4-ruby
+actions:
+###############################################################################
+# Time Machine                                                                #
+###############################################################################
+  # Save to disk (not to iCloud) by default
+  - action: command.run
+    command: defaults
+    args:
+      - "write"
+      - "NSGlobalDomain"
+      - "NSDocumentSaveNewDocumentsToCloud"
+      - "-bool"
+      - "false"
+
+## TODO: Convert to Comtrya Commands
+# # Prevent Time Machine from prompting to use new hard drives as backup volume
+# defaults write com.apple.TimeMachine DoNotOfferNewDisksForBackup -bool true
+
+# # Disable local Time Machine backups
+# hash tmutil &> /dev/null && sudo tmutil disablelocal

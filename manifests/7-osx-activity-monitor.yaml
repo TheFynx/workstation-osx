@@ -1,0 +1,34 @@
+depends:
+  - 1-init
+  - 2-packages
+  - 3-linuxify
+  - 4-node
+  - 4-python
+  - 4-ruby
+actions:
+###############################################################################
+# Activity Monitor                                                            #
+###############################################################################
+  # Save to disk (not to iCloud) by default
+  - action: command.run
+    command: defaults
+    args:
+      - "write"
+      - "NSGlobalDomain"
+      - "NSDocumentSaveNewDocumentsToCloud"
+      - "-bool"
+      - "false"
+
+## TODO: Convert to Comtrya Commands
+# # Show the main window when launching Activity Monitor
+# defaults write com.apple.ActivityMonitor OpenMainWindow -bool true
+
+# # Visualize CPU usage in the Activity Monitor Dock icon
+# defaults write com.apple.ActivityMonitor IconType -int 5
+
+# # Show all processes in Activity Monitor
+# defaults write com.apple.ActivityMonitor ShowCategory -int 0
+
+# # Sort Activity Monitor results by CPU usage
+# defaults write com.apple.ActivityMonitor SortColumn -string "CPUUsage"
+# defaults write com.apple.ActivityMonitor SortDirection -int 0
