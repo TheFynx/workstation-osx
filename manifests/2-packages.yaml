@@ -2,10 +2,12 @@ depends:
   - 1-init
 actions:
   # Add New Brew Taps
-  - action: package.tap
-    provider: homebrew
-    list:
+  - action: command.run
+    command: brew
+    args:
+      - tap
       - "homebrew/cask-fonts"
+
   # System
   - action: package.install
     provider: homebrew

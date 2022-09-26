@@ -1,3 +1,6 @@
+depends:
+  - 1-init
+  - 2-packages
 actions:
   - action: command.run
     command: git

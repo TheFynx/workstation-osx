@@ -1,7 +1,6 @@
 depends:
   - 1-init
   - 2-packages
-  - 3-services
 actions:
   - action: file.copy
     from: gitignore
