@@ -70,6 +70,7 @@ actions:
   # Fonts
   - action: package.install
     provider: homebrew
+    repository: homebrew/cask-versions
     list:
       - font-hack-nerd-font
 
