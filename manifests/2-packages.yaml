@@ -30,6 +30,7 @@ actions:
       - bzip2
       - shfmt
       - p7zip
+      - gpg
       - openjdk
       - diffutils
       - topgrade
@@ -46,6 +47,12 @@ actions:
       - vlc
       - balenaetcher
       - brave-browser
+      - adobe-acrobat-reader
+      - spotify
+      - doll
+      - hiddenbar
+      - alt-tab
+      - beardedspice
   # DevTools
   - action: package.install
     provider: homebrew
@@ -73,6 +80,7 @@ actions:
     repository: homebrew/cask-versions
     list:
       - font-hack-nerd-font
+      - font-sauce-code-pro-nerd-font
 
   # Coding
   - action: package.install

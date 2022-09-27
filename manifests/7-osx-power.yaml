@@ -20,39 +20,39 @@ actions:
     command: pmset
     args:
       - "-a"
-      - "displaysleep"
+      - displaysleep
       - "30"
   - action: command.run
     sudo: true
     command: pmset
     args:
       - "-c"
-      - "sleep"
+      - sleep
       - "0"
   - action: command.run
     sudo: true
     command: pmset
     args:
       - "-b"
-      - "sleep"
+      - sleep
       - "5"
   - action: command.run
     sudo: true
     command: pmset
     args:
       - "-a"
-      - "standbydelay"
+      - standbydelay
       - "86400"
   - action: command.run
     sudo: true
     command: systemsetup
     args:
       - "-setcomputersleep"
-      - "off"
+      - off
   - action: command.run
     sudo: true
     command: pmset
     args:
       - "-a"
-      - "hibernatemode"
+      - hibernatemode
       - "0"

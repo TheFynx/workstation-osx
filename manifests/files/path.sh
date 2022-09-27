@@ -32,7 +32,7 @@ if [ -d "/usr/sbin" ]; then
 fi
 
 # ENV Managers
-for util in rbenv pyenv nodenv goenv; do
+for util in rbenv pyenv nodenv; do
   PATH="$HOME/.$util/bin:$PATH"
   eval "$($util init -)"
 done

@@ -94,7 +94,7 @@ alias untar='tar -xvf'
 alias uac="sh ~/.bin/main/000*"
 
 # Cleanup orphaned packages
-alias cleanup='sudo yay -Rns $(yay -Qtdq)'
+alias cleanup='topgrade -c'
 
 # Continue download
 alias wget="wget -c"

@@ -60,3 +60,9 @@ isup() {
     notify-send --urgency=low "$uri is up"
   fi
 }
+
+changead() {
+  local username=${1}
+  local ad_domain=${2}
+  docker run --rm -it dperson/samba bash -c "smbpasswd -U $username -r ${ad_domain}"
+}

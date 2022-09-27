@@ -21,6 +21,11 @@ actions:
       - "-N ''"
       - "-f"
       - {{ user.home_dir }}/.ssh/id
+  - action: file.copy
+    from: ssh/config
+    to: {{ user.home_dir }}/.ssh/config
+    template: true
+    chmod: 644
   - action: command.run
     command: bash
     args:

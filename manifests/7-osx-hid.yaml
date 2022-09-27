@@ -13,7 +13,7 @@ actions:
   - action: command.run
     command: defaults
     args:
-      - "write"
+      - write
       - "com.apple.BluetoothAudioAgent"
       - "Apple Bitpool Min (editable)"
       - "-int"
@@ -22,51 +22,51 @@ actions:
   - action: command.run
     command: defaults
     args:
-      - "write"
-      - "com.apple.driver.AppleBluetoothMultitouch.trackpad"
+      - write
+      - com.apple.driver.AppleBluetoothMultitouch.trackpad
       - "TrackpadCornerSecondaryClick"
       - "-int"
       - "2"
   - action: command.run
     command: defaults
     args:
-      - "write"
-      - "com.apple.driver.AppleBluetoothMultitouch.trackpad"
+      - write
+      - com.apple.driver.AppleBluetoothMultitouch.trackpad
       - "TrackpadRightClick"
       - "-bool"
       - "true"
   - action: command.run
     command: defaults
     args:
-      - "write"
-      - "NSGlobalDomain"
-      - "com.apple.trackpad.trackpadCornerClickBehavior"
+      - write
+      - NSGlobalDomain
+      - com.apple.trackpad.trackpadCornerClickBehavior
       - "-int"
       - "1"
   - action: command.run
     command: defaults
     args:
-      - "write"
-      - "NSGlobalDomain"
-      - "com.apple.trackpad.enableSecondaryClick"
+      - write
+      - NSGlobalDomain
+      - com.apple.trackpad.enableSecondaryClick
       - "-bool"
       - "true"
   # Disable “natural” (Lion-style) scrolling
   - action: command.run
     command: defaults
     args:
-      - "write"
-      - "NSGlobalDomain"
-      - "com.apple.swipescrolldirection"
+      - write
+      - NSGlobalDomain
+      - com.apple.swipescrolldirection
       - "-bool"
       - "false"
   # Enable full keyboard access for all controls
   - action: command.run
     command: defaults
     args:
-      - "write"
-      - "NSGlobalDomain"
-      - "AppleKeyboardUIMode"
+      - write
+      - NSGlobalDomain
+      - AppleKeyboardUIMode
       - "-int"
       - "3"
   # Set the timezone; see `sudo systemsetup -listtimezones` for other values

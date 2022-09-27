@@ -62,3 +62,5 @@ export DOCKER_CONTENT_TRUST=0
 # Pulumi/Infra Work Exports
 export AWS_SDK_LOAD_CONFIG=1
 export PULUMI_SKIP_UPDATE_CHECK=1
+
+export GPG_TTY=$(tty)

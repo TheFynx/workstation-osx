@@ -14,17 +14,17 @@ actions:
   - action: command.run
     command: defaults
     args:
-      - "write"
-      - "NSGlobalDomain"
-      - "AppleFontSmoothing"
+      - write
+      - NSGlobalDomain
+      - AppleFontSmoothing
       - "-int"
       - "1"
   # Enable HiDPI display modes (requires restart)
   - action: command.run
     command: defaults
     args:
-      - "write"
-      - "/Library/Preferences/com.apple.windowserver"
-      - "DisplayResolutionEnabled"
+      - write
+      - /Library/Preferences/com.apple.windowserver
+      - DisplayResolutionEnabled
       - "-bool"
       - "true"

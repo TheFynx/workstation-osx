@@ -12,13 +12,13 @@ actions:
       - global
       - {{ variables.pythonVersion }}
   - action: command.run
-    command: pip
+    command: pip3
     args:
       - install
       - --upgrade
       - pip
   - action: command.run
-    command: pip
+    command: pip3
     args:
       - install
       - pylint
