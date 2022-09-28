@@ -60,6 +60,7 @@ actions:
       - insomnia
       - neovim
       - visual-studio-code
+      - rancher
   # Terminal
   - action: package.install
     provider: homebrew

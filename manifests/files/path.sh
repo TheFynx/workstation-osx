@@ -50,3 +50,7 @@ fi
 if [ -d "/usr/sbin" ]; then
   export PATH="/usr/sbin:${PATH}"
 fi
+
+if [ -d "${HOME}/.rd/bin" ]; then
+  export PATH="${HOME}/.rd/bin:${PATH}"
+fi
