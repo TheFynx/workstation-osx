@@ -1,21 +1,12 @@
 depends:
-  - 1-init
   - 2-packages
-  - 3-linuxify
-  - 4-node
-  - 4-python
-  - 4-ruby
 actions:
   ###############################################################################
   # Photos                                                                      #
   ###############################################################################
   # Prevent Photos from opening automatically when devices are plugged in
-  - action: command.run
-    command: defaults
-    args:
-      - "-currentHost"
-      - write
-      - com.apple.ImageCaptur
-      - disableHotPlug
-      - "-bool"
-      - "true"
+  - action: macos.default
+    domain: com.apple.ImageCaptur
+    key: disableHotPlug
+    kind: bool
+    value: "true"

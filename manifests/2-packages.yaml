@@ -1,5 +1,5 @@
 depends:
-  - 1-init
+  - 1-xcode
 actions:
   # Add New Brew Taps
   - action: command.run
@@ -35,6 +35,8 @@ actions:
       - diffutils
       - topgrade
       - gtop
+      - coreutils
+      - the-unarchiver
   # Desktop Environment
   - action: package.install
     provider: homebrew
@@ -45,20 +47,23 @@ actions:
       - bitwarden
       - alfred
       - vlc
+      - linearmouse
       - balenaetcher
       - brave-browser
       - adobe-acrobat-reader
       - spotify
-      - doll
       - hiddenbar
       - alt-tab
       - beardedspice
+      - gimp
+      - simplenote
   # DevTools
   - action: package.install
     provider: homebrew
     list:
       - insomnia
       - neovim
+      - neovide
       - visual-studio-code
       - rancher
   # Terminal
@@ -67,8 +72,6 @@ actions:
     list:
       - lynx
       - alacritty
-      - hyper
-      - fig
       - hstr
       - zsh
       - zsh-autosuggestions
@@ -112,11 +115,16 @@ actions:
       - pulumi
       - terraform
       - packer
-      - mattermost
-      - microsoft-teams
-
+      - iann0036/iamlive/iamlive
+  # Install Pure Paste
   - action: command.run
-    command: bash
+    command: mas
     args:
-      - "-c"
-      - "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+      - "install"
+      - "1611378436"
+  # Install Better Snap Tool
+  - action: command.run
+    command: mas
+    args:
+      - "install"
+      - "417375580"

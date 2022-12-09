@@ -1,74 +1,49 @@
 depends:
-  - 1-init
   - 2-packages
-  - 3-linuxify
-  - 4-node
-  - 4-python
-  - 4-ruby
 actions:
   ###############################################################################
   # Trackpad, mouse, keyboard, Bluetooth accessories, and input                 #
   ###############################################################################
   # Increase sound quality for Bluetooth headphones/headsets
-  - action: command.run
-    command: defaults
-    args:
-      - write
-      - "com.apple.BluetoothAudioAgent"
-      - "Apple Bitpool Min (editable)"
-      - "-int"
-      - "40"
+  - action: macos.default
+    domain: com.apple.BluetoothAudioAgent
+    key: "Apple Bitpool Min (editable)"
+    kind: int
+    value: "40"
+
   # Trackpad: enable tap to click for this user and for the login screen
-  - action: command.run
-    command: defaults
-    args:
-      - write
-      - com.apple.driver.AppleBluetoothMultitouch.trackpad
-      - "TrackpadCornerSecondaryClick"
-      - "-int"
-      - "2"
-  - action: command.run
-    command: defaults
-    args:
-      - write
-      - com.apple.driver.AppleBluetoothMultitouch.trackpad
-      - "TrackpadRightClick"
-      - "-bool"
-      - "true"
-  - action: command.run
-    command: defaults
-    args:
-      - write
-      - NSGlobalDomain
-      - com.apple.trackpad.trackpadCornerClickBehavior
-      - "-int"
-      - "1"
-  - action: command.run
-    command: defaults
-    args:
-      - write
-      - NSGlobalDomain
-      - com.apple.trackpad.enableSecondaryClick
-      - "-bool"
-      - "true"
-  # Disable “natural” (Lion-style) scrolling
-  - action: command.run
-    command: defaults
-    args:
-      - write
-      - NSGlobalDomain
-      - com.apple.swipescrolldirection
-      - "-bool"
-      - "false"
+  - action: macos.default
+    domain: com.apple.driver.AppleBluetoothMultitouch.trackpad
+    key: TrackpadCornerSecondaryClick
+    kind: int
+    value: "2"
+
+  - action: macos.default
+    domain: NSGlobalDomain
+    key: com.apple.trackpad.trackpadCornerClickBehavior
+    kind: int
+    value: "1"
+
+  - action: macos.default
+    domain: NSGlobalDomain
+    key: com.apple.trackpad.enableSecondaryClick
+    kind: bool
+    value: "true"
+
+  # Disable "natural" (Lion-style) scrolling
+  - action: macos.default
+    domain: NSGlobalDomain
+    key: com.apple.swipescrolldirection
+    kind: bool
+    value: "false"
+
   # Enable full keyboard access for all controls
-  - action: command.run
-    command: defaults
-    args:
-      - write
-      - NSGlobalDomain
-      - AppleKeyboardUIMode
-      - "-int"
-      - "3"
+  - action: macos.default
+    domain: NSGlobalDomain
+    key: AppleKeyboardUIMode
+    kind: int
+    value: "3"
+
   # Set the timezone; see `sudo systemsetup -listtimezones` for other values
   - action: command.run
     sudo: true

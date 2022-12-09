@@ -1,31 +1,31 @@
 actions:
 ## SSH Keys
-  - action: command.run
-    command: mkdir
-    args:
-      - "-p"
-      - {{ user.home_dir }}/.ssh
-  - action: command.run
-    command: ssh-keygen
-    args:
-      - "-t"
-      - ed25519
-      - "-N ''"
-      - "-f"
-      - {{ user.home_dir }}/.ssh/git
-  - action: command.run
-    command: ssh-keygen
-    args:
-      - "-t"
-      - ed25519
-      - "-N ''"
-      - "-f"
-      - {{ user.home_dir }}/.ssh/id
-  - action: file.copy
-    from: ssh/config
-    to: {{ user.home_dir }}/.ssh/config
-    template: true
-    chmod: 644
+  # - action: command.run
+  #   command: mkdir
+  #   args:
+  #     - "-p"
+  #     - {{ user.home_dir }}/.ssh
+  # - action: command.run
+  #   command: ssh-keygen
+  #   args:
+  #     - "-t"
+  #     - ed25519
+  #     - "-N ''"
+  #     - "-f"
+  #     - {{ user.home_dir }}/.ssh/git
+  # - action: command.run
+  #   command: ssh-keygen
+  #   args:
+  #     - "-t"
+  #     - ed25519
+  #     - "-N ''"
+  #     - "-f"
+  #     - {{ user.home_dir }}/.ssh/id
+  # - action: file.copy
+  #   from: ssh/config
+  #   to: {{ user.home_dir }}/.ssh/config
+  #   template: true
+  #   chmod: "644"
   - action: command.run
     command: bash
     args:

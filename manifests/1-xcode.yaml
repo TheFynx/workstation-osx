@@ -1,0 +1,14 @@
+depends:
+  - 1-init
+actions:
+  ## Install MAS CLI
+  - action: package.install
+    provider: homebrew
+    list:
+      - mas
+  ## Install XCODE
+  - action: command.run
+    command: mas
+    args:
+      - "install"
+      - "497799835"

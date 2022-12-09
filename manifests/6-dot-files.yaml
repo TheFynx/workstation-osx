@@ -1,9 +1,5 @@
 depends:
-  - 1-init
-  - 2-packages
-  - 4-node
   - 4-python
-  - 4-ruby
 actions:
   - action: file.copy
     from: aliases.sh

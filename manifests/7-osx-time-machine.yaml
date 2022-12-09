@@ -1,23 +1,16 @@
 depends:
-  - 1-init
   - 2-packages
-  - 3-linuxify
-  - 4-node
-  - 4-python
-  - 4-ruby
 actions:
   ###############################################################################
   # Time Machine                                                                #
   ###############################################################################
   # Prevent Time Machine from prompting to use new hard drives as backup volume
-  - action: command.run
-    command: defaults
-    args:
-      - write
-      - com.apple.TimeMachine
-      - DoNotOfferNewDisksForBackup
-      - "-bool"
-      - "true"
+  - action: macos.default
+    domain: com.apple.TimeMachine
+    key: DoNotOfferNewDisksForBackup
+    kind: bool
+    value: "true"
+
   # Disable local Time Machine backups
   - action: command.run
     command: hash

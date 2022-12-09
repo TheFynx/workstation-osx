@@ -1,89 +1,69 @@
 depends:
-  - 1-init
   - 2-packages
-  - 3-linuxify
-  - 4-node
-  - 4-python
-  - 4-ruby
 actions:
   ###############################################################################
   # General UI/UX                                                               #
   ###############################################################################
   # Disable the sound effects on boot
+
   - action: command.run
     sudo: true
     command: nvram
     args:
       - SystemAudioVolume=" "
+
   # Save to disk (not to iCloud) by default
-  - action: command.run
-    command: defaults
-    args:
-      - write
-      - NSGlobalDomain
-      - NSDocumentSaveNewDocumentsToCloud
-      - "-bool"
-      - "false"
-  # Disable the “Are you sure you want to open this application?” dialog
-  - action: command.run
-    command: defaults
-    args:
-      - write
-      - com.apple.LaunchServices
-      - LSQuarantine
-      - "-bool"
-      - "false"
+  - action: macos.default
+    domain: NSGlobalDomain
+    key: NSDocumentSaveNewDocumentsToCloud
+    kind: bool
+    value: "false"
+
+  # Disable the "Are you sure you want to open this application?" dialog
+  - action: macos.default
+    domain: com.apple.LaunchServices
+    key: LSQuarantine
+    kind: bool
+    value: "false"
+
   # Disable Resume system-wide
-  - action: command.run
-    command: defaults
-    args:
-      - write
-      - com.apple.systempreferences
-      - NSQuitAlwaysKeepsWindows
-      - "-bool"
-      - "false"
-  # Disable automatic capitalization as it’s annoying when typing code
-  - action: command.run
-    command: defaults
-    args:
-      - write
-      - NSGlobalDomain
-      - NSAutomaticCapitalizationEnabled
-      - "-bool"
-      - "false"
-  # Disable smart dashes as they’re annoying when typing code
-  - action: command.run
-    command: defaults
-    args:
-      - write
-      - NSGlobalDomain
-      - NSAutomaticDashSubstitutionEnabled
-      - "-bool"
-      - "false"
-  # Disable automatic period substitution as it’s annoying when typing code
-  - action: command.run
-    command: defaults
-    args:
-      - write
-      - NSGlobalDomain
-      - NSAutomaticPeriodSubstitutionEnabled
-      - "-bool"
-      - "false"
-  # Disable smart quotes as they’re annoying when typing code
-  - action: command.run
-    command: defaults
-    args:
-      - write
-      - NSGlobalDomain
-      - NSAutomaticQuoteSubstitutionEnabled
-      - "-bool"
-      - "false"
+  - action: macos.default
+    domain: com.apple.systempreferences
+    key: NSQuitAlwaysKeepsWindows
+    kind: bool
+    value: "false"
+
+  # Disable automatic capitalization as it's annoying when typing code
+  - action: macos.default
+    domain: NSGlobalDomain
+    key: NSAutomaticCapitalizationEnabled
+    kind: bool
+    value: "false"
+
+  # Disable smart dashes as they're annoying when typing code
+  - action: macos.default
+    domain: NSGlobalDomain
+    key: NSAutomaticDashSubstitutionEnabled
+    kind: bool
+    value: "false"
+
+  # Disable automatic period substitution as it's annoying when typing code
+  - action: macos.default
+    domain: NSGlobalDomain
+    key: NSAutomaticPeriodSubstitutionEnabled
+    kind: bool
+    value: "false"
+
+  # Disable smart quotes as they're annoying when typing code
+  - action: macos.default
+    domain: NSGlobalDomain
+    key: NSAutomaticQuoteSubstitutionEnabled
+    kind: bool
+    value: "false"
+
   # Disable auto-correct
-  - action: command.run
-    command: defaults
-    args:
-      - write
-      - NSGlobalDomain
-      - NSAutomaticSpellingCorrectionEnabled
-      - "-bool"
-      - "false"
+  - action: macos.default
+    domain: NSGlobalDomain
+    key: NSAutomaticSpellingCorrectionEnabled
+    kind: bool
+    value: "false"

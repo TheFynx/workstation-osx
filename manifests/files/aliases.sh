@@ -28,7 +28,7 @@ if [ -n "$(command -v nvim)" ]; then
 fi
 
 # Reload the shell (i.e. invoke as a login shell)
-alias reload="exec $SHELL -l"
+alias reload="exec ${SHELL} -l"
 
 if [ -n "$(command -v exa)" ]; then
   # switch to exa for better output
@@ -105,3 +105,5 @@ alias local_forecast='curl http://wttr.in/'
 
 # hh to be alias for hstr
 alias hh=hstr
+
+alias uq='xattr -d com.apple.quarantine'

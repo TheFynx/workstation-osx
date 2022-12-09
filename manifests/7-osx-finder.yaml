@@ -1,200 +1,151 @@
 depends:
-  - 1-init
   - 2-packages
-  - 3-linuxify
-  - 4-node
-  - 4-python
-  - 4-ruby
 actions:
   ###############################################################################
   # Finder                                                                      #
   ###############################################################################
   # Finder: allow quitting via ⌘ + Q; doing so will also hide desktop icons
-  - action: command.run
-    command: defaults
-    args:
-      - write
-      - com.apple.finder
-      - QuitMenuItem
-      - "-bool"
-      - "true"
+  - action: macos.default
+    domain: com.apple.finder
+    key: QuitMenuItem
+    kind: bool
+    value: "true"
+
   # Finder: disable window animations and Get Info animations
-  - action: command.run
-    command: defaults
-    args:
-      - write
-      - com.apple.finder
-      - DisableAllAnimations
-      - "-bool"
-      - "true"
+  - action: macos.default
+    domain: com.apple.finder
+    key: DisableAllAnimations
+    kind: bool
+    value: "true"
+
   # Don't Show icons for hard drives, servers, and removable media on the desktop
-  - action: command.run
-    command: defaults
-    args:
-      - write
-      - com.apple.finder
-      - ShowExternalHardDrivesOnDesktop
-      - "-bool"
-      - "false"
-  - action: command.run
-    command: defaults
-    args:
-      - write
-      - com.apple.finder
-      - ShowHardDrivesOnDesktop
-      - "-bool"
-      - "false"
-  - action: command.run
-    command: defaults
-    args:
-      - write
-      - com.apple.finder
-      - ShowHardDrivesOnDesktop
-      - "-bool"
-      - "false"
-  - action: command.run
-    command: defaults
-    args:
-      - write
-      - com.apple.finder
-      - ShowRemovableMediaOnDesktop
-      - "-bool"
-      - "false"
+  - action: macos.default
+    domain: com.apple.finder
+    key: ShowExternalHardDrivesOnDesktop
+    kind: bool
+    value: "false"
+
+  - action: macos.default
+    domain: com.apple.finder
+    key: ShowHardDrivesOnDesktop
+    kind: bool
+    value: "false"
+
+  - action: macos.default
+    domain: com.apple.finder
+    key: ShowRemovableMediaOnDesktop
+    kind: bool
+    value: "false"
+
   # Finder: show hidden files by default
-  - action: command.run
-    command: defaults
-    args:
-      - write
-      - com.apple.finder
-      - AppleShowAllFiles
-      - "-bool"
-      - "false"
+  - action: macos.default
+    domain: com.apple.finder
+    key: AppleShowAllFiles
+    kind: bool
+    value: "true"
+
   # Finder: show all filename extensions
-  - action: command.run
-    command: defaults
-    args:
-      - write
-      - NSGlobalDomain
-      - AppleShowAllExtensions
-      - "-bool"
-      - "false"
+  - action: macos.default
+    domain: NSGlobalDomain
+    key: AppleShowAllExtensions
+    kind: bool
+    value: "true"
+
   # Finder: show path bar
-  - action: command.run
-    command: defaults
-    args:
-      - write
-      - com.apple.finder
-      - ShowPathbar
-      - "-bool"
-      - "false"
+  - action: macos.default
+    domain: com.apple.finder
+    key: ShowPathbar
+    kind: bool
+    value: "true"
+
   # Keep folders on top when sorting by name
-  - action: command.run
-    command: defaults
-    args:
-      - write
-      - com.apple.finder
-      - "_FXSortFoldersFirst"
-      - "-bool"
-      - "false"
+  - action: macos.default
+    domain: com.apple.finder
+    key: _FXSortFoldersFirst
+    kind: bool
+    value: "true"
+
   # When performing a search, search the current folder by default
-  - action: command.run
-    command: defaults
-    args:
-      - write
-      - com.apple.finder
-      - FXDefaultSearchScope
-      - "-string"
-      - "SCcf"
+  - action: macos.default
+    domain: com.apple.finder
+    key: FXDefaultSearchScope
+    kind: string
+    value: "SCcf"
+
   # Disable the warning when changing a file extension
-  - action: command.run
-    command: defaults
-    args:
-      - write
-      - com.apple.finder
-      - FXEnableExtensionChangeWarning
-      - "-bool"
-      - "false"
+  - action: macos.default
+    domain: com.apple.finder
+    key: FXEnableExtensionChangeWarning
+    kind: bool
+    value: "false"
+
   # Enable spring loading for directories
-  - action: command.run
-    command: defaults
-    args:
-      - write
-      - NSGlobalDomain
-      - com.apple.springing.enabled
-      - "-bool"
-      - "true"
+  - action: macos.default
+    domain: NSGlobalDomain
+    key: com.apple.springing.enabled
+    kind: bool
+    value: "true"
+
   # Enable spring loading for directories
-  - action: command.run
-    command: defaults
-    args:
-      - write
-      - NSGlobalDomain
-      - com.apple.springing.delay
-      - "-float"
-      - "0"
+  - action: macos.default
+    domain: NSGlobalDomain
+    key: com.apple.springing.delay
+    kind: float
+    value: "0"
+
   # Avoid creating .DS_Store files on network or USB volumes
-  - action: command.run
-    command: defaults
-    args:
-      - write
-      - com.apple.desktopservices
-      - DSDontWriteNetworkStores
-      - "-bool"
-      - "true"
-  - action: command.run
-    command: defaults
-    args:
-      - write
-      - com.apple.desktopservices
-      - DSDontWriteUSBStores
-      - "-bool"
-      - "true"
+  - action: macos.default
+    domain: com.apple.desktopservices
+    key: DSDontWriteNetworkStores
+    kind: bool
+    value: "true"
+
+  - action: macos.default
+    domain: com.apple.desktopservices
+    key: DSDontWriteUSBStores
+    kind: bool
+    value: "true"
+
   # Disable disk image verification
-  - action: command.run
-    command: defaults
-    args:
-      - write
-      - com.apple.frameworks.diskimages
-      - skip-verify
-      - "-bool"
-      - "true"
-  - action: command.run
-    command: defaults
-    args:
-      - write
-      - com.apple.frameworks.diskimages
-      - skip-verify-locked
-      - "-bool"
-      - "true"
-  - action: command.run
-    command: defaults
-    args:
-      - write
-      - com.apple.frameworks.diskimages
-      - skip-verify-remote
-      - "-bool"
-      - "true"
+  - action: macos.default
+    domain: com.apple.frameworks.diskimages
+    key: skip-verify
+    kind: bool
+    value: "true"
+
+  - action: macos.default
+    domain: com.apple.frameworks.diskimages
+    key: skip-verify-locked
+    kind: bool
+    value: "true"
+
+  - action: macos.default
+    domain: com.apple.frameworks.diskimages
+    key: skip-verify-remote
+    kind: bool
+    value: "true"
+
   # Use list view in all Finder windows by default
-  - action: command.run
-    command: defaults
-    args:
-      - write
-      - com.apple.finder
-      - FXPreferredViewStyle
-      - "-string"
-      - "Nlsv"
+  - action: macos.default
+    domain: com.apple.finder
+    key: FXPreferredViewStyle
+    kind: string
+    value: "Nlsv"
+
   # Show the ~/Library folder
   - action: command.run
     command: chflags
     args:
       - nohidden
       - ~/Library
+
   - action: command.run
     command: xattr
     args:
       - "-d"
       - com.apple.FinderInfo
       - ~/Library
+
   # Show the /Volumes folder
   - action: command.run
     sudo: true
@@ -202,8 +153,9 @@ actions:
     args:
       - nohidden
       - /Volumes
+
   # Expand the following File Info panes:
-  # “General”, “Open with”, and “Sharing & Permissions”
+  # "General", "Open with", and "Sharing & Permissions"
   - action: command.run
     command: defaults
     args:

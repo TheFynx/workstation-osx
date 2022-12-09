@@ -14,6 +14,10 @@ actions:
     template: true
     to: "{{ user.home_dir }}/.config/alacritty/fonts.yml"
   - action: file.copy
+    from: alacritty/key_bindings.yaml
+    template: true
+    to: "{{ user.home_dir }}/.config/alacritty/key_bindings.yml"
+  - action: file.copy
     from: hyper/hyper.js
     template: true
     to: "{{ user.home_dir }}/.hyper.js"

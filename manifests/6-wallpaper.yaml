@@ -1,10 +1,5 @@
 depends:
   - 1-init
-  - 2-packages
-  - 4-node
-  - 4-python
-  - 4-ruby
-  - 5-terminal
 actions:
   - action: command.run
     command: mkdir
