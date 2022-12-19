@@ -51,3 +51,5 @@ if [[ -n "${terminfo[kend]}" ]]; then
   bindkey -M viins "${terminfo[kend]}" end-of-line
   bindkey -M vicmd "${terminfo[kend]}" end-of-line
 fi
+
+bindkey  "^[[3~"  delete-char
