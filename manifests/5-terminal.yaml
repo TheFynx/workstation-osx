@@ -1,5 +1,12 @@
 depends:
-  - 2-packages
+  [
+    "./1-init",
+    "./2-packages",
+    "./3-linuxify",
+    "./4-node",
+    "./4-python",
+    "./4-ruby",
+  ]
 actions:
   - action: file.copy
     from: alacritty/alacritty.yaml

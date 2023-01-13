@@ -1,5 +1,4 @@
-depends:
-- 2-packages
+depends: ["./1-init", "./2-packages", "./3-linuxify"]
 actions:
   - action: command.run
     command: pyenv

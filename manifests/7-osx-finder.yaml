@@ -1,5 +1,18 @@
 depends:
-  - 2-packages
+  [
+    "./1-init",
+    "./2-packages",
+    "./3-linuxify",
+    "./4-node",
+    "./4-python",
+    "./4-ruby",
+    "./5-terminal",
+    "./6-dot-files",
+    "./6-gitconfig",
+    "./6-library",
+    "./6-neovim",
+    "./6-wallpaper",
+  ]
 actions:
   ###############################################################################
   # Finder                                                                      #
