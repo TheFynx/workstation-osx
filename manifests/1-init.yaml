@@ -25,7 +25,7 @@ actions:
     from: ssh/config
     to: {{ user.home_dir }}/.ssh/config
     template: true
-    chmod: 644
+    chmod: "644"
   - action: command.run
     command: bash
     args:
