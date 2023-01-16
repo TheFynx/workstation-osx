@@ -1,4 +1,4 @@
-depends: ["./1-init"]
+depends: ["./manifests/1-init"]
 actions:
   ## Install MAS CLI
   - action: package.install

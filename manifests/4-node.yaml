@@ -1,4 +1,4 @@
-depends: ["./1-init", "./2-packages", "./3-linuxify"]
+depends: ["./manifests/1-init", "./manifests/2-packages", "./manifests/3-linuxify"]
 actions:
   - action: command.run
     command: nodenv

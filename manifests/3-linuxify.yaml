@@ -1,4 +1,4 @@
-depends: ["./1-init", "./2-packages"]
+depends: ["./manifests/1-init", "./manifests/2-packages"]
 actions:
   - action: command.run
     command: git

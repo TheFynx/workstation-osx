@@ -1,17 +1,17 @@
 depends:
   [
-    "./1-init",
-    "./2-packages",
-    "./3-linuxify",
-    "./4-node",
-    "./4-python",
-    "./4-ruby",
-    "./5-terminal",
-    "./6-dot-files",
-    "./6-gitconfig",
-    "./6-library",
-    "./6-neovim",
-    "./6-wallpaper",
+    "./manifests/1-init",
+    "./manifests/2-packages",
+    "./manifests/3-linuxify",
+    "./manifests/4-node",
+    "./manifests/4-python",
+    "./manifests/4-ruby",
+    "./manifests/5-terminal",
+    "./manifests/6-dot-files",
+    "./manifests/6-gitconfig",
+    "./manifests/6-library",
+    "./manifests/6-neovim",
+    "./manifests/6-wallpaper",
   ]
 actions:
   ###############################################################################

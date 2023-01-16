@@ -1,4 +1,4 @@
-depends: ["./1-xcode"]
+depends: ["./manifests/1-xcode"]
 actions:
   # Add New Brew Taps
   - action: command.run

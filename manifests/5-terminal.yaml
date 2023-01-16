@@ -1,11 +1,11 @@
 depends:
   [
-    "./1-init",
-    "./2-packages",
-    "./3-linuxify",
-    "./4-node",
-    "./4-python",
-    "./4-ruby",
+    "./manifests/1-init",
+    "./manifests/2-packages",
+    "./manifests/3-linuxify",
+    "./manifests/4-node",
+    "./manifests/4-python",
+    "./manifests/4-ruby",
   ]
 actions:
   - action: file.copy
